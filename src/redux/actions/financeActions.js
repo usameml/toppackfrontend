@@ -1,4 +1,6 @@
 import axios from 'axios';
+import API_URL from '../../config';
+
 
 export const GET_REVENUES_SUCCESS = 'GET_REVENUES_SUCCESS';
 export const GET_EXPENSES_SUCCESS = 'GET_EXPENSES_SUCCESS';
@@ -9,7 +11,7 @@ export const DELETE_EXPENSE_SUCCESS = 'DELETE_EXPENSE_SUCCESS';
 
 export const getRevenues = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3000/api/finance/revenues');
+    const response = await axios.get(`${API_URL}/api/finance/revenues`);
     dispatch({ type: GET_REVENUES_SUCCESS, payload: response.data });
   } catch (error) {
     console.error('Error fetching revenues', error);
@@ -18,7 +20,7 @@ export const getRevenues = () => async (dispatch) => {
 
 export const getExpenses = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3000/api/finance/expenses');
+    const response = await axios.get(`${API_URL}/api/finance/expenses`);
     dispatch({ type: GET_EXPENSES_SUCCESS, payload: response.data });
   } catch (error) {
     console.error('Error fetching expenses', error);
@@ -27,7 +29,7 @@ export const getExpenses = () => async (dispatch) => {
 
 export const addRevenue = (revenue) => async (dispatch) => {
   try {
-    const response = await axios.post('http://localhost:3000/api/finance/revenues', revenue);
+    const response = await axios.post(`${API_URL}/api/finance/revenues`, revenue);
     dispatch({ type: ADD_REVENUE_SUCCESS, payload: response.data });
   } catch (error) {
     console.error('Error adding revenue', error);
@@ -36,7 +38,7 @@ export const addRevenue = (revenue) => async (dispatch) => {
 
 export const addExpense = (expense) => async (dispatch) => {
   try {
-    const response = await axios.post('http://localhost:3000/api/finance/expenses', expense);
+    const response = await axios.post(`${API_URL}/api/finance/expenses`, expense);
     dispatch({ type: ADD_EXPENSE_SUCCESS, payload: response.data });
   } catch (error) {
     console.error('Error adding expense', error);
@@ -45,7 +47,7 @@ export const addExpense = (expense) => async (dispatch) => {
 
 export const deleteRevenue = (id) => async (dispatch) => {
   try {
-    await axios.delete(`http://localhost:3000/api/finance/revenues/${id}`);
+    await axios.delete(`${API_URL}/api/finance/revenues/${id}`);
     dispatch({ type: DELETE_REVENUE_SUCCESS, payload: id });
   } catch (error) {
     console.error('Error deleting revenue', error);
@@ -54,7 +56,7 @@ export const deleteRevenue = (id) => async (dispatch) => {
 
 export const deleteExpense = (id) => async (dispatch) => {
   try {
-    await axios.delete(`http://localhost:3000/api/finance/expenses/${id}`);
+    await axios.delete(`${API_URL}/api/finance/expenses/${id}`);
     dispatch({ type: DELETE_EXPENSE_SUCCESS, payload: id });
   } catch (error) {
     console.error('Error deleting expense', error);
