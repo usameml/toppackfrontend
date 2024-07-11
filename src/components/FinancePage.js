@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addRevenue, addExpense, getRevenues, getExpenses, deleteRevenue, deleteExpense } from '../redux/actions/financeActions';
 import { Button, Form, Input, List, Popconfirm } from 'antd';

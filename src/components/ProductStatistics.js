@@ -164,11 +164,9 @@ const ProductStatistics = () => {
   const handleDownloadPdf = async () => {
     const inputDoughnut = document.getElementById('doughnut-chart');
     const inputBar = document.getElementById('bar-chart');
-    const inputTable = document.getElementById('data-table');
   
     const pdf = new jsPDF('p', 'mm', 'a4');
     const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = pdf.internal.pageSize.getHeight();
   
     const startDate = dateRange[0] ? dateRange[0].format('YYYY-MM-DD') : 'N/A';
     const endDate = dateRange[1] ? dateRange[1].format('YYYY-MM-DD') : 'N/A';
